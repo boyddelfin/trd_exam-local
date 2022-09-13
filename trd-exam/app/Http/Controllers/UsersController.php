@@ -27,4 +27,27 @@ class UsersController extends Controller
         return $user;
 
     }
+
+    public function update(Request $request) {
+        $user = User::find($request->post('id'));
+        $user->name = $request->post('name');
+        $user->name = $request->post('email');
+        $user->name = $request->post('password');
+        $result = $user->save;
+        if($result) {
+            return ['result'=>'success'];
+        } else {
+            return ['result'=>'failed'];
+        }
+    }
+
+    public function delete(Request $request) {
+        $user = User::find($request->id);
+        $result = $user->delete();
+        if($result) {
+            return ['result'=>'success'];
+        } else {
+            return ['result'=>'failed'];
+        }
+    } 
 }

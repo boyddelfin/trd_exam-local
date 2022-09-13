@@ -20,4 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/user/add', [UsersController::class, 'add']);
-Route::get('/user/update', [UsersController::class, 'show']);
+Route::get('/user/edit', [UsersController::class, 'show']);
+Route::get('/user/update', [UsersController::class, 'update']);
+Route::get('/user/delete/{id}', [UsersController::class, 'delete']);
