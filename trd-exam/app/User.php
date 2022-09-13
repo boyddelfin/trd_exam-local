@@ -5,10 +5,15 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Skills;
 
 class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
+
+    public function skills() {
+        return $this->hasMany('App\Skills');
+    } 
 
     /**
      * The attributes that are mass assignable.
