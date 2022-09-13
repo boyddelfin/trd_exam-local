@@ -20,4 +20,11 @@ class UsersController extends Controller
             return ['result' => 'failed'];
         }
     }
+
+    public function show(Request $request) {
+        $user = User::find($request->id);
+
+        return $user;
+
+    }
 }
