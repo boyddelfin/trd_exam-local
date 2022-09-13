@@ -11,7 +11,13 @@ class UsersController extends Controller
 
         $table = new User;
         $table->name = $request->name;
-
-        return ;
+        $table->email = $request->email;
+        $table->password = $request->password;
+        $result = $table->save();
+        if($result) {
+            return ['result' => 'success'];
+        } else {
+            return ['result' => 'failed'];
+        }
     }
 }
